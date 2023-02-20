@@ -19,6 +19,7 @@ on:
 
 jobs:
   build:
+    name: invoicing-system-build
     runs-on: ubuntu-latest
 
     steps:
