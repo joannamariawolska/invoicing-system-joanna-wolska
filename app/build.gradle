@@ -5,6 +5,12 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/8.0/userguide/building_java_projects.html
  */
+buildscript {
+    ext {
+        lombokVersion = '1.18.16'
+        // 1.18.18 is broken - lombok.config is ignored, try to upgrade to 1.18.20 when available
+    }
+}
 
 plugins {
     // Apply the groovy plugin to also add support for Groovy (needed for Spock)
@@ -24,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.projectlombok:lombok:1.18.16'
 
     // Use the latest Groovy version for Spock testing
     testImplementation 'org.codehaus.groovy:groovy:3.0.13'
@@ -37,10 +43,10 @@ dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
 
     //Lombok
-    annotationProcessor("org.projectlombok:lombok:1.18.22")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
-    compileOnly("org.projectlombok:lombok:1.18.22")
-    testCompileOnly("org.projectlombok:lombok:1.18.22")
+    annotationProcessor("org.projectlombok:lombok:1.18.16")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.16")
+    compileOnly("org.projectlombok:lombok:1.18.16")
+    testCompileOnly("org.projectlombok:lombok:1.18.16")
 }
 
 application {
