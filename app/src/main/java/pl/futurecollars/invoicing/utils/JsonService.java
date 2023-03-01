@@ -18,7 +18,7 @@ public class JsonService {
     try {
       return objectMapper.writeValueAsString(object);
     } catch (JsonProcessingException e) {
-      throw new RuntimeException("Failed to convert string to Json" ,e);
+      throw new RuntimeException("Failed to convert string to Json", e);
     }
   }
 
@@ -26,7 +26,7 @@ public class JsonService {
     try {
       return objectMapper.readValue(json, clazz);
     } catch (JsonProcessingException e) {
-      throw new RuntimeException("Failed to parse Json" ,e);
+      throw new RuntimeException("Failed to parse Json", e);
     }
   }
 }
