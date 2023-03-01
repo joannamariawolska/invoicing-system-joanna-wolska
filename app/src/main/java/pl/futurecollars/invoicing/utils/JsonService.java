@@ -14,7 +14,7 @@ public class JsonService {
     objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
   }
 
-  public String invoiceAsJson(Object object) {
+  public String toJson(Object object) {
     try {
       return objectMapper.writeValueAsString(object);
     } catch (JsonProcessingException e) {
@@ -22,7 +22,7 @@ public class JsonService {
     }
   }
 
-  public <T> T invoiceFromFile(String json, Class<T> clazz) {
+  public <T> T toObject(String json, Class<T> clazz) {
     try {
       return objectMapper.readValue(json, clazz);
     } catch (JsonProcessingException e) {

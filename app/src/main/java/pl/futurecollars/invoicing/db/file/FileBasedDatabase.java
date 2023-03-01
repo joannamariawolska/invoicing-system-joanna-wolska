@@ -23,7 +23,7 @@ public class FileBasedDatabase implements Database {
   public int save(Invoice invoice) {
     try {
       invoice.setId(idService.getNextIdAndIncrement());
-      filesService.appendLineToFile(databasePath, jsonService.invoiceAsJson(invoice));
+      filesService.appendLineToFile(databasePath, jsonService.toJson(invoice));
 
       return invoice.getId();
     } catch (IOException ex) {
@@ -37,7 +37,7 @@ public class FileBasedDatabase implements Database {
       return filesService.readAllLines(databasePath)
           .stream()
           .filter(line -> containsId(line, id))
-          .map(line -> jsonService.invoiceFromFile(line, Invoice.class))
+          .map(line -> jsonService.toObject(line, Invoice.class))
           .findFirst();
     } catch (IOException ex) {
       throw new RuntimeException("Database failed to get invoice with id: " + id, ex);
@@ -49,7 +49,7 @@ public class FileBasedDatabase implements Database {
     try {
       return filesService.readAllLines(databasePath)
           .stream()
-          .map(line -> jsonService.invoiceFromFile(line, Invoice.class))
+          .map(line -> jsonService.toObject(line, Invoice.class))
           .collect(Collectors.toList());
     } catch (IOException ex) {
       throw new RuntimeException("Failed to read invoices from file", ex);
@@ -70,7 +70,7 @@ public class FileBasedDatabase implements Database {
       }
 
       updatedInvoice.setId(id);
-      listWithoutInvoiceWithGivenId.add(jsonService.invoiceAsJson(updatedInvoice));
+      listWithoutInvoiceWithGivenId.add(jsonService.toJson(updatedInvoice));
 
       filesService.writeLinesToFile(databasePath, listWithoutInvoiceWithGivenId);
 
