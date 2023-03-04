@@ -67,6 +67,7 @@ checkstyle {
 
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run
+    finalizedBy jacocoTestCoverageVerification
 }
 
 jacocoTestReport {
