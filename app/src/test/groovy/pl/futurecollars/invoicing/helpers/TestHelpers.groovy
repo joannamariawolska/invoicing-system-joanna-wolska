@@ -1,11 +1,11 @@
-package pl.futurecollars.invoicing;
+package pl.futurecollars.invoicing.helpers
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import pl.futurecollars.invoicing.model.Company;
-import pl.futurecollars.invoicing.model.Invoice;
-import pl.futurecollars.invoicing.model.InvoiceEntry;
-import pl.futurecollars.invoicing.model.Vat;
+import pl.futurecollars.invoicing.model.Company
+import pl.futurecollars.invoicing.model.Invoice
+import pl.futurecollars.invoicing.model.InvoiceEntry
+import pl.futurecollars.invoicing.model.Vat
+
+import java.time.LocalDate
 
 class TestHelpers {
 

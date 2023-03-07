@@ -44,6 +44,10 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
     compileOnly("org.projectlombok:lombok:1.18.22")
     testCompileOnly("org.projectlombok:lombok:1.18.22")
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.1'
 }
 
 application {
@@ -67,6 +71,7 @@ checkstyle {
 
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run
+    finalizedBy jacocoTestCoverageVerification
 }
 
 jacocoTestReport {
