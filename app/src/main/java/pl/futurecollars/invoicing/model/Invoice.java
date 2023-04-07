@@ -1,4 +1,5 @@
 package pl.futurecollars.invoicing.model;
+
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
 import java.util.List;
