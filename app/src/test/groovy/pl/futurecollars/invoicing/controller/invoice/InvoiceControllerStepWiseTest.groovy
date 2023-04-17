@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.controller
+package pl.futurecollars.invoicing.controller.invoice
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -11,6 +11,7 @@ import pl.futurecollars.invoicing.utils.JsonService
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Stepwise
+
 import java.time.LocalDate
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
@@ -26,7 +27,7 @@ class InvoiceControllerStepwiseTest extends Specification {
     private MockMvc mockMvc
 
     @Autowired
-    private JsonService jsonService;
+    private JsonService jsonService
 
     private Invoice originalInvoice = TestHelpers.invoice(1)
 
